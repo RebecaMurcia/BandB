@@ -28,15 +28,17 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+// Mount Routes
+app.use('/api/rooms', require('./routes/roomRoutes'));
 
 /**
  * @openapi
  * /:
- * get:
- * description: Welcome message for the B&B API
- * responses:
- * 200:
- * description: Returns a success string.
+ *  get:
+ *   description: Welcome message for the B&B API
+ *   responses:
+ *      200:
+ *        description: Returns a success string.
  */
 app.get('/', (req, res) => {
     res.send('Welcome to the Bed & Breakfast API!');
