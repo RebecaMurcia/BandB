@@ -51,4 +51,46 @@ router.route('/')
     .get(bookingController.getAllBookings)
     .post(bookingController.createBooking);
 
+/**
+ * @openapi
+ * /api/bookings/{id}:
+ *   put:
+ *     summary: Update an existing reservation's details
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The unique MongoDB ObjectId of the booking
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *     responses:
+ *       200:
+ *         description: Booking updated successfully.
+ *       404:
+ *         description: Booking not found.
+ *   delete:
+ *     summary: Cancel and remove a reservation
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The unique MongoDB ObjectId of the booking
+ *     responses:
+ *       200:
+ *         description: Booking deleted successfully.
+ *       404:
+ *         description: Booking not found.
+ */
+router.route('/:id')
+    .put(bookingController.updateBooking)
+    .delete(bookingController.deleteBooking);
+
 module.exports = router;
