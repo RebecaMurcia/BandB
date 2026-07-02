@@ -30,6 +30,7 @@ const swaggerDocs = swaggerJSDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Mount Routes
 app.use('/api/rooms', require('./routes/roomRoutes'));
+app.use('/api/bookings', require('./routes/bookingRoutes'));
 
 /**
  * @openapi
