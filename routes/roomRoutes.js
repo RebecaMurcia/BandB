@@ -45,5 +45,46 @@ const roomController = require('../controllers/roomController');
 router.route('/')
     .get(roomController.getAllRooms)
     .post(roomController.createRoom);
+/**
+ * @openapi
+ * /api/rooms/{id}:
+ *   put:
+ *     summary: Update an existing room's details
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The unique MongoDB ObjectId of the room
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *     responses:
+ *       200:
+ *         description: Room updated successfully.
+ *       404:
+ *         description: Room not found.
+ *   delete:
+ *     summary: Remove a room from inventory
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The unique MongoDB ObjectId of the room
+ *     responses:
+ *       200:
+ *         description: Room deleted successfully.
+ *       404:
+ *         description: Room not found.
+ */
+router.route('/:id')
+    .put(roomController.updateRoom)
+    .delete(roomController.deleteRoom);
 
 module.exports = router;
