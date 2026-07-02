@@ -1,0 +1,26 @@
+[
+  {
+    "name": "The Cozy Ocean Suite",
+    "description": "A beautiful beachfront room featuring a king-size bed, private deck, and panoramic ocean views.",
+    "maxGuests": 2,
+    "pricePerNight": 180,
+    "amenities": ["Wi-Fi", "King Bed", "Ocean View", "Air Conditioning"],
+    "images": ["https://images.unsplash.com/photo-1590490360182-c33d57733427"]
+  },
+  {
+    "name": "Rustic Mountain Cabin",
+    "description": "Nestled in the woods, this cozy cabin includes a wood-burning fireplace, a private hot tub, and a small kitchen.",
+    "maxGuests": 4,
+    "pricePerNight": 220,
+    "amenities": ["Wi-Fi", "Fireplace", "Hot Tub", "Kitchen"],
+    "images": ["https://images.unsplash.com/photo-1510798831971-661eb04b3739"]
+  },
+  {
+    "name": "The Garden Bungalow",
+    "description": "A charming, sun-filled room surrounded by lush gardens. Perfect for a peaceful weekend getaway.",
+    "maxGuests": 2,
+    "pricePerNight": 140,
+    "amenities": ["Wi-Fi", "Queen Bed", "Garden View", "Breakfast Included"],
+    "images": ["https://images.unsplash.com/photo-1566665797739-1674de7a421a"]
+  }
+]
