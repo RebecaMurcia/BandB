@@ -1,26 +1,100 @@
 [
   {
-    "name": "The Cozy Ocean Suite",
-    "description": "A beautiful beachfront room featuring a king-size bed, private deck, and panoramic ocean views.",
+    "name": "Avory Room",
+    "description": "Original wide-plank hardwood floors and low-slung, sloped plaster ceilings evoke a peaceful, nostalgic atmosphere.",
     "maxGuests": 2,
+    "pricePerNight": 75,
+    "amenities": [
+      "Private bathroom with bathtub",
+      "Hot Water",
+      "Quilted comforters",
+      "Extra blankets",
+      "Essential toileteries",
+      "Fans",
+      "WiFi"
+    ],
+    "images": ["assets/avory_room1.png"]
+  },
+  {
+    "name": "Brunning Room",
+    "description": "Immerse yourself in moody, vintage elegance in this beautifully appointed guest room, where classic design meets deep, comforting tones.",
+    "maxGuests": 6,
+    "pricePerNight": 190,
+    "amenities": [
+      "Private bathroom with bathtub and headshower",
+      "Hot Water",
+      "Linen sheets and extra pillows",
+      "Essential toileteries",
+      "AC and heating",
+      "WiFi "
+    ],
+    "images": ["assets/brunning_room1.jpg"]
+  },
+  {
+    "name": "Blue Room",
+    "description": "Bright, serene, and bursting with classic cottagecore elegance, this guest room balances blues with warm, natural wood tones to create the ultimate restful escape.",
+    "maxGuests": 2,
+    "pricePerNight": 120,
+    "amenities": [
+      "Private bathroom with showerhead",
+      "Hot Water",
+      "Extra warm blankets",
+      "Essential toileteries",
+      "Fans",
+      "WiFi"
+    ],
+    "images": ["assets/blue_room1.png"]
+  },
+  {
+    "name": "Grand Deluxe",
+    "description": "Steeped in atmospheric, old-world luxury and regal character, this expansive master suite blends dramatic jewel tones with classic mid-century and antique elements for a truly grand escape.",
+    "maxGuests": 2,
+    "pricePerNight": 250,
+    "amenities": [
+     "Complementary Champagne",
+      "Private bathroom with bathtub",
+      "Hot Water",
+      "Linen sheets and extra pillows",
+      "Essential toileteries",
+      "AC and heating",
+      "WiFi"
+    ],
+    "images": ["assets/grand_deluxe1.jpg"]
+  },
+  {
+    "name": "Magnolia Room",
+    "description": "Exuding country-inn aesthetic, this spacious room combines soothing earth tones with classic cottage elements to create a restful haven for family or friends traveling together.",
+    "maxGuests": 6,
     "pricePerNight": 180,
-    "amenities": ["Wi-Fi", "King Bed", "Ocean View", "Air Conditioning"],
-    "images": ["https://images.unsplash.com/photo-1590490360182-c33d57733427"]
+    "amenities": [
+      "Private bathroom with bathtub and showerhead",
+      "Hot Water",
+      "AC and heating",
+      "Essential toileteries",
+      "WiFi"
+    ],
+    "images": ["assets/magnolia_room1.jpg"]
   },
   {
-    "name": "Rustic Mountain Cabin",
-    "description": "Nestled in the woods, this cozy cabin includes a wood-burning fireplace, a private hot tub, and a small kitchen.",
-    "maxGuests": 4,
-    "pricePerNight": 220,
-    "amenities": ["Wi-Fi", "Fireplace", "Hot Tub", "Kitchen"],
-    "images": ["https://images.unsplash.com/photo-1510798831971-661eb04b3739"]
-  },
-  {
-    "name": "The Garden Bungalow",
-    "description": "A charming, sun-filled room surrounded by lush gardens. Perfect for a peaceful weekend getaway.",
-    "maxGuests": 2,
-    "pricePerNight": 140,
-    "amenities": ["Wi-Fi", "Queen Bed", "Garden View", "Breakfast Included"],
-    "images": ["https://images.unsplash.com/photo-1566665797739-1674de7a421a"]
+    "name": "Sophie Room",
+    "description": "Steeped in stately elegance and classic character, this room balances rich, heirloom wood craftsmanship with soft, historical blue-green tones for a regal yet comforting retreat.",
+    "maxGuests": 3,
+    "pricePerNight": 135,
+    "amenities": [
+      "Private bathroom with bathtub",
+      "Hot Water",
+      "Linen sheets and extra pillows",
+      "AC and heating",
+      "Essential toileteries",
+      "WiFi"
+    ],
+    "images": ["assets/sophie_room1.png"]
   }
 ]
+
+
+
+  
+
+  
+  
