@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 8080;
 // Middleware
 app.use(cors());
 app.use(express.json()); // Allows us to parse JSON bodies in requests
+app.use(express.static('public')); // Serve static frontend files from the public folder
 
 // Swagger Configuration Options
 const swaggerOptions = {

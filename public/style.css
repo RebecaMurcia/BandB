@@ -1,0 +1,371 @@
+/* ==========================================================================
+   1. BRAND CONFIGURATION & VARIABLES
+   ========================================================================== */
+:root {
+    --color-bg-cream: #f6f2ef;
+    --color-forest-green: #394430;
+    --color-grey-green: #8e9786;
+    --color-brown: #623e2a;
+    --color-charcoal: #333333;
+    --color-white: #ffffff;
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --logo-height: 180px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-cream);
+    color: var(--color-charcoal);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. SITE HEADER & NAVIGATION DROPDOWN
+   ========================================================================== */
+.site-header {
+    background-color: var(--color-bg-cream);
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto 1.5rem auto;
+    font-size: 0.85rem;
+    letter-spacing: 0.1rem;
+}
+
+.nav-links-left {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links-left a, .nav-links-right a {
+    text-decoration: none;
+    color: var(--color-forest-green);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links-left a:hover, .nav-links-right a:hover {
+    color: var(--color-grey-green);
+}
+
+/* Dropdown Container Logic */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content Hidden Blueprint */
+.dropdown-content {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(247, 244, 238, 0.95);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.08);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    text-align: left;
+    padding: 0.5rem 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: var(--color-forest-green);
+    padding: 0.75rem 1.5rem;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(45, 64, 48, 0.05);
+}
+
+/* Trigger Reveal on Hover */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Branding Logo Elements */
+.logo-container {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img {
+    height: var(--logo-height);
+    width: auto; 
+    object-fit: cover;
+    margin-top: -20px;
+    margin-bottom: -20px;
+    transition: transform 0.3s ease;
+}
+
+/* ==========================================================================
+   3. HERO BANNER
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-stay-btn {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-bg-cream);
+    color: var(--color-brown);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: background-color 0.2s ease;
+}
+
+.book-stay-btn:hover {
+    background-color: var(--color-white);
+}
+
+/* ==========================================================================
+   4. SECTIONS & GRIDS (Split Panels / Row Cards)
+   ========================================================================== */
+.section-title {
+    font-family: Georgia, serif;
+    color: var(--color-brown);
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* Intro Section Split Banner */
+.intro-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--color-forest-green);
+    color: var(--color-white);
+}
+
+.intro-content {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro-content h2 {
+    font-family: Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.intro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Rooms Collection Row Layout */
+.rooms-section {
+    max-width: 1400px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Individual Dynamic Cards */
+.room-card {
+    background: transparent;
+}
+
+.room-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.room-card-meta {
+    font-size: 0.75rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    margin: 0.5rem 0 0.2rem 0;
+}
+
+.room-card h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    color: var(--color-brown);
+    font-size: 1.3rem;
+}
+
+.room-card .price {
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+}
+
+/* Featured Spot Split Banner (Grand Deluxe) */
+.featured-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--color-grey-green);
+    color: var(--color-bg-cream);
+}
+
+.featured-content {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.featured-content h2 {
+    font-family: Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.availability-btn {
+    background-color: var(--color-bg-cream);
+    color: var(--color-forest-green);
+    border: none;
+    padding: 0.8rem 2rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    letter-spacing: 0.05rem;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Our Services Card Grid */
+.services-section {
+    max-width: 1400px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    color: var(--color-brown);
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* ==========================================================================
+   5. SITE FOOTER
+   ========================================================================== */
+.site-footer {
+    background-color: var(--color-forest-green);
+    color: var(--color-white);
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.footer-info {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-info h3 {
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    font-weight: 400;
+    max-width: 400px;
+}
+
+.info-group h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.5rem;
+    color: #cbd4c5;
+}
+
+.info-group p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.footer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
