@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details | Village Goose B&B</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. NAVIGATION HEADER -->
+    <header class="site-header">
+        <nav class="nav-bar">
+            <div class="nav-links-left">
+                <a href="/">HOME</a>
+                <a href="#">SERVICES</a>
+                <a href="#">CONTACT</a>
+            </div>
+            <div class="nav-links-right">
+                <a href="#" class="login-btn">LOGIN</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. FULL-WIDTH HERO SLIDER -->
+    <section class="room-hero-slider">
+        <div class="slider-container" id="slider-container">
+            <!-- Dynamic room images will be injected here -->
+            <img src="assets/blue-room.jpg" alt="Room Main Image" class="slider-img active">
+        </div>
+        <button class="slider-arrow prev-arrow">&#10094;</button>
+        <button class="slider-arrow next-arrow">&#10095;</button>
+        <div class="slider-dots" id="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="room-page-content">
+        
+        <!-- 3. ROOM INTRO SPLIT PANEL -->
+        <section class="room-intro-split">
+            <!-- Left Side: Text Details -->
+            <div class="room-text-details">
+                <h1 id="room-title" class="room-page-title">Blue Room</h1>
+                <p id="room-meta" class="room-page-meta">MAX 2 GUESTS / 1 QUEEN BED / $120 PER NIGHT</p>
+                
+                <div id="room-paragraphs" class="room-description-text">
+                    <!-- Paragraph blocks injected here -->
+                    <p><strong>Botanical & Beadboard Accents:</strong> The upper walls are dressed in a delicate, white-and-blue leafy botanical wallpaper...</p>
+                </div>
+
+                <div class="offers-container">
+                    <h3>WHAT THIS ROOM OFFERS</h3>
+                    <ul id="room-amenities-list" class="offers-list">
+                        <li>Private bathroom with showerhead</li>
+                        <li>Hot Water</li>
+                        <li>Extra warm blankets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Side: Decorative Artwork Collage -->
+            <div class="room-collage-panel">
+                <div class="collage-wrapper">
+                    <!-- Decorative botanical line art asset -->
+                    <img src="assets/botanical-line.png" alt="" class="collage-decor-icon" onerror="this.style.display='none'">
+                    <img src="assets/blue-room-accent1.jpg" alt="Room detail view" class="collage-img img-top">
+                    <img src="assets/blue-room-accent2.jpg" alt="Bathroom detail view" class="collage-img img-bottom">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. BOOKING DETAILS GRID SECTION -->
+        <section class="booking-details-section">
+            <h2 class="section-title">Booking Details</h2>
+            
+            <div class="booking-interactive-grid">
+                <!-- Left: Interactive Calendar Card -->
+                <div class="calendar-card">
+                    <div class="calendar-inputs-row">
+                        <div class="input-item">
+                            <label><i class="icon-user"></i> Guests</label>
+                            <span class="input-val">1 Adult, 0 Children</span>
+                        </div>
+                        <div class="input-item">
+                            <label><i class="icon-calendar"></i> Check-in</label>
+                            <input type="date" id="check-in" class="calendar-date-picker">
+                        </div>
+                        <div class="input-item">
+                            <label><i class="icon-calendar"></i> Check-out</label>
+                            <input type="date" id="check-out" class="calendar-date-picker">
+                        </div>
+                    </div>
+                    
+                    <!-- We can render a UI calendar layout box here later -->
+                    <div class="calendar-render-box" id="calendar-view">
+                        <!-- Calendar grid component -->
+                    </div>
+                    
+                    <div class="calendar-actions">
+                        <button type="button" class="btn-cancel">Cancel</button>
+                        <button type="button" id="btn-reserve" class="btn-reserve">Reserve</button>
+                    </div>
+                </div>
+
+                <!-- Right: Checkout Receipt Summary Card -->
+                <div class="checkout-summary-card">
+                    <div class="summary-thumbnail">
+                        <img id="summary-room-img" src="assets/blue-room.jpg" alt="Room thumbnail">
+                    </div>
+                    <div class="summary-rates">
+                        <h4 id="summary-room-name">Blue Room</h4>
+                        <p class="rate-sub">Breakfast Inclusive</p>
+                        <p class="stay-duration">1 Night stay</p>
+                        
+                        <div class="receipt-row">
+                            <span class="label-link">Taxes and fees</span>
+                            <span class="value">$184.64</span>
+                        </div>
+                        
+                        <div class="stay-dates-summary">
+                            <p>Sun, Aug 9, 2026</p>
+                            <p>Mon, Aug 10, 2026</p>
+                            <p>1 Adult</p>
+                        </div>
+                        
+                        <hr class="summary-divider">
+                        
+                        <div class="receipt-row total-row">
+                            <div>
+                                <strong>Total</strong>
+                                <p class="taxes-notice">Including taxes and fees</p>
+                            </div>
+                            <strong class="total-price">$761.64</strong>
+                        </div>
+                        
+                        <button type="button" class="btn-checkout">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. SITE FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-columns">
+            <div class="footer-info">
+                <div class="footer-logo-layout">
+                    <img src="assets/logo.png" alt="Village Goose Logo" class="footer-logo-img">
+                </div>
+                <div class="info-group">
+                    <h4>Location</h4>
+                    <p>123 Anywhere St., Any City, ST 12345</p>
+                    <p>Tel: 123-456-7890</p>
+                    <p>hello@reallygreatsite.com</p>
+                </div>
+                <div class="info-group">
+                    <h4>Business Hours</h4>
+                    <p>Monday - Friday: 8am - 7pm</p>
+                    <p>Saturday - Sunday: 9am - 5pm</p>
+                </div>
+                <div class="info-group">
+                    <h4>Get Social</h4>
+                    <div class="social-icons">
+                        <!-- Reusing layout structures -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

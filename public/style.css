@@ -369,3 +369,398 @@ body {
     object-fit: cover;
     display: block;
 }
+
+/* ==========================================================================
+   6. ROOM DETAILS: HERO BANNER SLIDER
+   ========================================================================== */
+.room-hero-slider {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-color: #e0decb;
+    overflow: hidden;
+}
+
+.slider-container {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.slider-img.active {
+    display: block;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+    z-index: 5;
+}
+
+.slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.prev-arrow { left: 2rem; }
+.next-arrow { right: 2rem; }
+
+.slider-dots {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 5;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: var(--color-white);
+}
+
+/* ==========================================================================
+   7. ROOM DETAILS: INTRO SPLIT PANEL & OVERLAPPING COLLAGE
+   ========================================================================== */
+.room-page-content {
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.room-intro-split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 6rem;
+}
+
+.room-page-title {
+    font-family: Georgia, serif;
+    font-size: 2.5rem;
+    color: var(--color-burgundy);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.room-page-meta {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.room-description-text p {
+    margin-bottom: 1.5rem;
+    color: var(--color-charcoal);
+    font-size: 1rem;
+}
+
+.offers-container {
+    margin-top: 3rem;
+}
+
+.offers-container h3 {
+    font-size: 0.85rem;
+    letter-spacing: 0.1rem;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.offers-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+}
+
+.offers-list li {
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 1.5rem;
+    color: #444;
+}
+
+.offers-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-burgundy);
+    font-size: 1.2rem;
+    top: -2px;
+}
+
+/* Decorative Overlapping Collage Grid Mechanics */
+.room-collage-panel {
+    position: relative;
+    width: 100%;
+    height: 480px;
+}
+
+.collage-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.collage-img {
+    position: absolute;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    border-radius: 2px;
+}
+
+.img-top {
+    width: 65%;
+    height: 280px;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.img-bottom {
+    width: 60%;
+    height: 260px;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+}
+
+.collage-decor-icon {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    left: 55%;
+    top: 40%;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   8. ROOM DETAILS: BOOKING INTERACTIVE DETAILS PANEL
+   ========================================================================== */
+.booking-details-section {
+    margin-top: 5rem;
+    border-top: 1px solid #e6e2da;
+    padding-top: 4rem;
+}
+
+.booking-interactive-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Left Card: Calendar Shell Layout */
+.calendar-card {
+    background: var(--color-white);
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    border-radius: 4px;
+}
+
+.calendar-inputs-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    background: #fdfcf9;
+    border: 1px solid #eae6df;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.input-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.input-item label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    color: #777;
+    font-weight: 600;
+}
+
+.input-val {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.calendar-date-picker {
+    border: none;
+    background: transparent;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    color: var(--color-charcoal);
+    outline: none;
+    width: 100%;
+}
+
+.calendar-render-box {
+    width: 100%;
+    min-height: 300px;
+    background: #ffffff;
+    border: 1px solid #f2eee7;
+    margin-bottom: 2rem;
+    /* This will containerize the UI calendar canvas */
+}
+
+.calendar-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.btn-cancel {
+    background: transparent;
+    border: none;
+    color: #777;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-reserve {
+    background-color: #838e7f; /* Muted slate garden green from mockup buttons */
+    color: var(--color-white);
+    border: none;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.btn-reserve:hover {
+    background-color: var(--color-forest-green);
+}
+
+/* Right Card: Checkout Breakdown Receipt Layout */
+.checkout-summary-card {
+    background: var(--color-white);
+    border: 1px solid #eae6df;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.02);
+}
+
+.summary-thumbnail h4 {
+    font-family: Georgia, serif;
+    font-size: 1.4rem;
+}
+
+.summary-thumbnail img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.summary-rates {
+    padding: 2rem;
+}
+
+.rate-sub {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.2rem;
+}
+
+.stay-duration {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.label-link {
+    text-decoration: underline;
+    color: #555;
+    cursor: pointer;
+}
+
+.stay-dates-summary {
+    background: #fdfcf9;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #666;
+    margin: 1.5rem 0;
+    line-height: 1.5;
+}
+
+.summary-divider {
+    border: none;
+    border-top: 1px solid #eae6df;
+    margin: 1.5rem 0;
+}
+
+.total-row {
+    margin-bottom: 2rem;
+}
+
+.total-row strong {
+    font-size: 1.3rem;
+    color: var(--color-charcoal);
+}
+
+.taxes-notice {
+    font-size: 0.75rem;
+    color: #888;
+    font-weight: 400;
+}
+
+.btn-checkout {
+    width: 100%;
+    background-color: var(--color-forest-green);
+    color: var(--color-white);
+    border: none;
+    padding: 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.05rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.btn-checkout:hover {
+    background-color: #1b261c;
+}

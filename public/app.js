@@ -54,3 +54,13 @@ function displayRooms(rooms) {
         roomsContainer.appendChild(roomCard);
     });
 }
+
+// Inside your rooms.forEach(room => { ... }) block in app.js:
+roomCard.innerHTML = `
+    <a href="/room.html?id=${room._id}" class="room-card-link">
+        <img src="${roomImage}" alt="${room.name}">
+        <div class="room-card-meta">Max Guests: ${room.maxGuests}</div>
+        <h3>${room.name}</h3>
+        <p class="price">from $${room.pricePerNight}/night</p>
+    </a>
+`;
