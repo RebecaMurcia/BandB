@@ -9,19 +9,7 @@
 <body>
 
     <!-- 1. NAVIGATION HEADER -->
-    <header class="site-header">
-        <nav class="nav-bar">
-            <div class="nav-links-left">
-                <a href="/">HOME</a>
-                <a href="#">SERVICES</a>
-                <a href="#">CONTACT</a>
-            </div>
-            <div class="nav-links-right">
-                <a href="#" class="login-btn">LOGIN</a>
-            </div>
-        </nav>
-    </header>
-
+    <%- include('partials/header') %>
     <!-- 2. FULL-WIDTH HERO SLIDER -->
     <section class="room-hero-slider">
         <div class="slider-container" id="slider-container">
@@ -146,32 +134,7 @@
     </main>
 
     <!-- 5. SITE FOOTER -->
-    <footer class="site-footer">
-        <div class="footer-columns">
-            <div class="footer-info">
-                <div class="footer-logo-layout">
-                    <img src="assets/logo.png" alt="Village Goose Logo" class="footer-logo-img">
-                </div>
-                <div class="info-group">
-                    <h4>Location</h4>
-                    <p>123 Anywhere St., Any City, ST 12345</p>
-                    <p>Tel: 123-456-7890</p>
-                    <p>hello@reallygreatsite.com</p>
-                </div>
-                <div class="info-group">
-                    <h4>Business Hours</h4>
-                    <p>Monday - Friday: 8am - 7pm</p>
-                    <p>Saturday - Sunday: 9am - 5pm</p>
-                </div>
-                <div class="info-group">
-                    <h4>Get Social</h4>
-                    <div class="social-icons">
-                        <!-- Reusing layout structures -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+  <%- include('partials/footer') %>
 
 </body>
 </html>

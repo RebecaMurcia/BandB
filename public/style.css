@@ -323,51 +323,109 @@ body {
 }
 
 /* ==========================================================================
-   5. SITE FOOTER
+   5. STATEMENT BOTTOM SECTION
    ========================================================================== */
-.site-footer {
-    background-color: var(--color-forest-green);
-    color: var(--color-white);
+.statement {
+    background-color: var(--color-grey-green);
+    color: var(--color-charcoal);
 }
 
-.footer-columns {
+.statement-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.footer-info {
-    padding: 5rem;
+.statement-box {
+    padding: 7rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
 }
 
-.footer-info h3 {
+.statement-box h3 {
     font-family: Georgia, serif;
     font-size: 2rem;
     font-weight: 400;
     max-width: 400px;
+    font-style: italic;
 }
 
-.info-group h4 {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    margin-bottom: 0.5rem;
-    color: #cbd4c5;
-}
-
-.info-group p {
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
-
-.footer-image img {
+.bottom-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* ==========================================================================
+   GLOBAL SITE FOOTER
+   ========================================================================== */
+.site-footer {
+    background-color:var(--color-forest-green);
+    color: var(--color-bg-cream);
+    padding: 5rem 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr; 
+    gap: 3rem;
+    align-items: start;
+}
+
+.footer-column h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--color-bg-cream);
+    font-family: 'Garamond', Georgia, serif; 
+}
+
+.footer-column p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+    color: var(--color-bg-cream);
+    font-family: var(--font-primary);
+}
+
+.footer-column a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Brand Specific Formatting */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 200px; 
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Social Icons Alignment */
+.footer-socials {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.footer-socials a {
+    font-size: 1.4rem;
+    color: var(--color-bg-cream);
+    transition: opacity 0.2s ease;
+}
+
+.footer-socials a:hover {
+    opacity: 0.7;
 }
 
 /* ==========================================================================

@@ -6,6 +6,12 @@ const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 
 const app = express();
+
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+// Optional: Explicitly tell Express where your template files live (defaults to a folder named "views")
+app.set('views', './views');
+
 const PORT = process.env.PORT || 8080;
 
 // Middleware
@@ -34,6 +40,13 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use('/api/rooms', require('./routes/roomRoutes'));
 app.use('/api/bookings', require('./routes/bookingRoutes'));
 
+app.get('/', (req, res) => {
+    res.render('index');
+});
+app.get('/room', (req, res) => {
+    res.render('room');
+});
+
 /**
  * @openapi
  * /:
@@ -43,9 +56,6 @@ app.use('/api/bookings', require('./routes/bookingRoutes'));
  *      200:
  *        description: Returns a success string.
  */
-app.get('/', (req, res) => {
-    res.send('Welcome to the Bed & Breakfast API!');
-});
 
 // Database Connection & Server Start
 mongoose.connect(process.env.MONGODB_URI)
