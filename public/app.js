@@ -1,7 +1,9 @@
 console.log('Frontend JavaScript successfully connected!');
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
     fetchRooms();
+    }
 });
 
 // Fetch all rooms from REST API
@@ -49,7 +51,8 @@ function displayRooms(rooms) {
         <h3>${room.name}</h3>
         <p class="price">from $${room.pricePerNight}/night</p>
     </a>
-`;    
+`;
+    
         roomsContainer.appendChild(roomCard);
     });
 }
@@ -77,6 +80,7 @@ async function initRoomDetailsPage() {
 
     try {
         // 2. Fetch the specific room data from the backend API endpoint
+        console.log("Checking roomId before fetch:", roomId);
         const response = await fetch(`/api/rooms/${roomId}`);
         if (!response.ok) {
             throw new Error('Could not find room data in the system database.');

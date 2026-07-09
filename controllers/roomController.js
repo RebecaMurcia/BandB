@@ -20,6 +20,22 @@ exports.createRoom = async (req, res) => {
     }
 };
 
+// GET - Retrieve a single room by ID
+exports.getRoomById = async (req, res) => {
+   
+    try {
+        const room = await Room.findById(req.params.id);
+        
+        if (!room) {
+            return res.status(404).json({ message: 'Accommodation room not found' });
+        }
+        
+        res.status(200).json(room);
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving room details from database', error: error.message });
+    }
+};
+
 // PUT -  Update a room by ID
 exports.updateRoom = async (req, res) => {
     try {

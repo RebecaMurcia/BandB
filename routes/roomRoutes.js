@@ -84,6 +84,7 @@ router.route('/')
  *         description: Room not found.
  */
 router.route('/:id')
+    .get(roomController.getRoomById)
     .put(roomController.updateRoom)
     .delete(roomController.deleteRoom);
 
