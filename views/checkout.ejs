@@ -1,0 +1,121 @@
+<%- include('partials/header') %>
+
+<main class="checkout-page-container">
+    <h1 class="checkout-title">Checkout</h1>
+
+    <div class="checkout-layout">
+        <!-- LEFT COLUMN: Main Transaction Form -->
+        <form id="final-booking-form" class="checkout-form-column">
+            
+            <!-- Section 1: Guest Information -->
+            <section class="form-section">
+                <h2>Guest Information</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" required autocomplete="given-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" required autocomplete="family-name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="tel" id="phoneNumber" required autocomplete="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required autocomplete="email">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Address Details -->
+            <section class="form-section">
+                <h2>Address</h2>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" required autocomplete="country-name">
+                        <option value="" disabled selected>Select Country</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="MX">Mexico</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address1">Address 1</label>
+                    <input type="text" id="address1" required autocomplete="address-line1">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" required autocomplete="address-level2">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" required autocomplete="address-level1">
+                    </div>
+                    <div class="form-group">
+                        <label for="zipCode">Zip Code</label>
+                        <input type="text" id="zipCode" required autocomplete="postal-code">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Payment Information -->
+            <section class="form-section">
+                <h2>Payment Information</h2>
+                <p class="payment-disclaimer">
+                    We use secure transmission and encrypted storage to protect your personal information.<br>
+                    <strong id="deposit-highlight">$0.00 deposit due today.</strong>
+                </p>
+                <div class="form-group">
+                    <label for="cardImg">Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="xxxx xxxx xxxx xxxx" required pattern="\d{16,19}">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expDate">Expiration Date (MM/YY)</label>
+                        <input type="text" id="expDate" placeholder="MM/YY" required pattern="(0[1-9]|1[0-2])\/?([0-9]{2})">
+                    </div>
+                    <div class="form-group">
+                        <label for="cardName">Name on Card</label>
+                        <input type="text" id="cardName" required>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Policies Accordion Box -->
+            <section class="checkout-policies-box">
+                <h2>Policies</h2>
+                <p>Check-in after 3:00 pm<br>Check-out before 12:00 pm</p>
+                <p class="policy-details">
+                    The full amount of your stay will be charged 30 days prior to your arrival – Credit card number with valid expiry date and security code is required to guarantee your reservation. Free cancellation/modification until 4pm, 30 days prior to arrival. A penalty of the entire stay including tax will be charged for late cancellation/modification, no-show and early departure.
+                </p>
+            </section>
+
+            <!-- Section 5: Legal Terms Acknowledgment -->
+            <section class="form-section acknowledgement">
+                <h2>Acknowledgement</h2>
+                <p>By completing this booking, I agree with the Booking Conditions.</p>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="termsAgree" required>
+                    <span>* I agree with the Privacy Terms.</span>
+                </label>
+            </section>
+
+            <button type="submit" class="confirm-booking-btn">Confirm Booking</button>
+        </form>
+
+        <!-- RIGHT COLUMN: Sticky Receipt Sidebar (Populated via JS later) -->
+        <aside class="checkout-summary-column" id="checkout-receipt-target">
+            <div class="receipt-loading-placeholder">
+                <p>Retrieving your reservation details...</p>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

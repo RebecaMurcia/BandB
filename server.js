@@ -47,6 +47,10 @@ app.get('/room', (req, res) => {
     res.render('room');
 });
 
+app.get('/checkout', (req, res) => {
+    res.render('checkout');
+});
+
 /**
  * @openapi
  * /:

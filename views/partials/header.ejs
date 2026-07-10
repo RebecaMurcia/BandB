@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Village Goose Bed & Breakfast</title>
-    <link rel="stylesheet" href="/style.css"> <!-- Added leading slash so it paths correctly on all subroutes -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+       .flatpickr-calendar { background: #fdfcfb; border: 1px solid #e5e2da; font-family: Georgia, serif; }
+       .flatpickr-day.selected { background: #334231 !important; border-color: #334231 !important; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
     <header class="site-header">
@@ -23,6 +29,10 @@
             </div>
             <div class="nav-links-right">
                 <a href="#" class="login-btn">LOGIN</a>
+                <a href="/checkout" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-badge" class="cart-badge" style="display: none;"></span>
+                </a>
             </div>
         </nav>
     </header>

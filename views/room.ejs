@@ -65,70 +65,37 @@
         <section class="booking-details-section">
             <h2 class="section-title">Booking Details</h2>
             
-            <div class="booking-interactive-grid">
-                <!-- Left: Interactive Calendar Card -->
-                <div class="calendar-card">
-                    <div class="calendar-inputs-row">
-                        <div class="input-item">
-                            <label><i class="icon-user"></i> Guests</label>
-                            <span class="input-val">1 Adult, 0 Children</span>
-                        </div>
-                        <div class="input-item">
-                            <label><i class="icon-calendar"></i> Check-in</label>
-                            <input type="date" id="check-in" class="calendar-date-picker">
-                        </div>
-                        <div class="input-item">
-                            <label><i class="icon-calendar"></i> Check-out</label>
-                            <input type="date" id="check-out" class="calendar-date-picker">
-                        </div>
-                    </div>
-                    
-                    <!-- We can render a UI calendar layout box here later -->
-                    <div class="calendar-render-box" id="calendar-view">
-                        <!-- Calendar grid component -->
-                    </div>
-                    
-                    <div class="calendar-actions">
-                        <button type="button" class="btn-cancel">Cancel</button>
-                        <button type="button" id="btn-reserve" class="btn-reserve">Reserve</button>
-                    </div>
-                </div>
-
-                <!-- Right: Checkout Receipt Summary Card -->
-                <div class="checkout-summary-card">
-                    <div class="summary-thumbnail">
-                        <img id="summary-room-img" src="assets/blue-room.jpg" alt="Room thumbnail">
-                    </div>
-                    <div class="summary-rates">
-                        <h4 id="summary-room-name">Blue Room</h4>
-                        <p class="rate-sub">Breakfast Inclusive</p>
-                        <p class="stay-duration">1 Night stay</p>
-                        
-                        <div class="receipt-row">
-                            <span class="label-link">Taxes and fees</span>
-                            <span class="value">$184.64</span>
-                        </div>
-                        
-                        <div class="stay-dates-summary">
-                            <p>Sun, Aug 9, 2026</p>
-                            <p>Mon, Aug 10, 2026</p>
-                            <p>1 Adult</p>
-                        </div>
-                        
-                        <hr class="summary-divider">
-                        
-                        <div class="receipt-row total-row">
-                            <div>
-                                <strong>Total</strong>
-                                <p class="taxes-notice">Including taxes and fees</p>
-                            </div>
-                            <strong class="total-price">$761.64</strong>
-                        </div>
-                        
-                        <button type="button" class="btn-checkout">Checkout</button>
-                    </div>
-                </div>
+            <div class="room-booking-flow-container">
+    <!-- Left Interaction Area: Calendar Panel -->
+<div class="calendar-selection-panel">
+        <div class="filter-ribbon">
+            <div class="ribbon-box">
+                <label><i class="fas fa-users"></i> Guests</label>
+                <select id="booking-guests">
+                    <option value="1">1 adult, 0 children</option>
+                    <option value="2">2 adults, 0 children</option>
+                </select>
             </div>
+            <div class="ribbon-box">
+                <label><i class="fas fa-calendar-alt"></i> Selected Stay Dates</label>
+                <input type="text" id="date-range-picker" placeholder="Select Check-in and Check-out dates...">
+            </div>
+        </div>
+
+        <!-- The Inline Double-Month Calendar Target Container -->
+        <div id="inline-calendar-container"></div>
+
+        <div class="calendar-action-bar">
+            <span id="aggregate-price-preview">Select dates to view pricing options</span>
+            <div>
+                <a href="#" class="cancel-lnk" onclick="window.location.reload(); return false;">Cancel</a>
+                <button id="reserve-stage-btn" disabled class="reserve-btn-styled">Reserve</button>
+            </div>
+        </div>
+    </div>
+    <aside class="receipt-breakout-sidebar" id="receipt-sidebar-panel" style="display: none;"></aside>
+</div>
+                     
         </section>
 
     </main>

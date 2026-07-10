@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. BRAND CONFIGURATION & VARIABLES
+   BRAND CONFIGURATION & VARIABLES
    ========================================================================== */
 :root {
     --color-bg-cream: #f6f2ef;
@@ -26,7 +26,7 @@ body {
 }
 
 /* ==========================================================================
-   2. SITE HEADER & NAVIGATION DROPDOWN
+   SITE HEADER & NAVIGATION DROPDOWN
    ========================================================================== */
 .site-header {
     background-color: var(--color-bg-cream);
@@ -104,6 +104,24 @@ body {
     transform: translateY(0);
 }
 
+/* Cart red notification */
+.cart-btn {
+    position: relative;
+    font-size: 1.2rem;
+    color: var(--color-forest-green);
+    text-decoration: none;
+    margin-left: 1.5rem;
+}
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #b0413e; /* Accent red dot */
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
 /* Branding Logo Elements */
 .logo-container {
     margin-top: 2rem;
@@ -124,7 +142,7 @@ body {
 }
 
 /* ==========================================================================
-   3. HERO BANNER
+   HERO BANNER
    ========================================================================== */
 .hero-section {
     position: relative;
@@ -165,7 +183,7 @@ body {
 }
 
 /* ==========================================================================
-   4. SECTIONS & GRIDS (Split Panels / Row Cards)
+   SECTIONS & GRIDS (Split Panels / Row Cards)
    ========================================================================== */
 .section-title {
     font-family: Georgia, serif;
@@ -323,7 +341,7 @@ body {
 }
 
 /* ==========================================================================
-   5. STATEMENT BOTTOM SECTION
+   STATEMENT BOTTOM SECTION
    ========================================================================== */
 .statement {
     background-color: var(--color-grey-green);
@@ -429,7 +447,7 @@ body {
 }
 
 /* ==========================================================================
-   6. ROOM DETAILS: HERO BANNER SLIDER
+   ROOM DETAILS: HERO BANNER SLIDER
    ========================================================================== */
 .room-hero-slider {
     position: relative;
@@ -503,7 +521,7 @@ body {
 }
 
 /* ==========================================================================
-   7. ROOM DETAILS: INTRO SPLIT PANEL & OVERLAPPING COLLAGE
+   ROOM DETAILS: INTRO SPLIT PANEL & OVERLAPPING COLLAGE
    ========================================================================== */
 .room-page-content {
     max-width: 1400px;
@@ -623,7 +641,7 @@ body {
 }
 
 /* ==========================================================================
-   8. ROOM DETAILS: BOOKING INTERACTIVE DETAILS PANEL
+   ROOM DETAILS: BOOKING INTERACTIVE DETAILS PANEL
    ========================================================================== */
 .booking-details-section {
     margin-top: 5rem;
@@ -638,187 +656,351 @@ body {
     align-items: start;
 }
 
-/* Left Card: Calendar Shell Layout */
-.calendar-card {
-    background: var(--color-white);
-    padding: 2.5rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    border-radius: 4px;
-}
+/* ==========================================================================
+   BOOKING INTERFACE & CALENDAR GRID
+   ========================================================================== */
 
-.calendar-inputs-row {
+/* Main layout flow container matching your split layout wireframe */
+.room-booking-flow-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    background: #fdfcf9;
-    border: 1px solid #eae6df;
-    padding: 1rem;
-    border-radius: 4px;
-    margin-bottom: 2rem;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3.5rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+    align-items: start;
+    font-family: 'Garamond', Georgia, serif;
 }
 
-.input-item {
+/* Left side interactive selection panel */
+.calendar-selection-panel {
+    background-color: #fff;
+    padding: 1.5rem;
+    border: 1px solid #eadecf; /* Soft warm wood tone border hint */
+}
+
+/* Custom styled filters ribbon container */
+.filter-ribbon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid #dcd7cd;
+    margin-bottom: 2rem;
+    background-color: #fdfcfb;
+}
+
+.ribbon-box {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
 }
 
-.input-item label {
+/* Visual divider line between ribbon blocks */
+.ribbon-box:first-child {
+    border-right: 1px solid #dcd7cd;
+}
+
+.ribbon-box label {
+    font-family: sans-serif;
     font-size: 0.75rem;
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
-    color: #777;
-    font-weight: 600;
+    color: #6d6a61;
+    margin-bottom: 0.4rem;
 }
 
-.input-val {
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.calendar-date-picker {
+/* Reset baseline borders for clean integrated ribbon look */
+.ribbon-box select,
+.ribbon-box input {
     border: none;
     background: transparent;
-    font-family: var(--font-primary);
-    font-size: 0.9rem;
-    color: var(--color-charcoal);
+    font-family: 'Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    color: #334231;
     outline: none;
-    width: 100%;
+    cursor: pointer;
+    padding: 0;
 }
 
-.calendar-render-box {
-    width: 100%;
-    min-height: 300px;
-    background: #ffffff;
-    border: 1px solid #f2eee7;
-    margin-bottom: 2rem;
-    /* This will containerize the UI calendar canvas */
-}
-
-.calendar-actions {
+/* Force Flatpickr to mount elegantly and match look */
+#inline-calendar-container {
+    margin: 2rem 0;
     display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
+    justify-content: center;
+    background-color: #fdfcfb;
+    padding: 1rem;
+    border: 1px solid #f0ede6;
 }
 
-.btn-cancel {
-    background: transparent;
-    border: none;
-    color: #777;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.btn-reserve {
-    background-color: #838e7f; /* Muted slate garden green from mockup buttons */
-    color: var(--color-white);
-    border: none;
-    padding: 0.75rem 2rem;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: background 0.2s ease;
-}
-
-.btn-reserve:hover {
-    background-color: var(--color-forest-green);
-}
-
-/* Right Card: Checkout Breakdown Receipt Layout */
-.checkout-summary-card {
-    background: var(--color-white);
-    border: 1px solid #eae6df;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.02);
-}
-
-.summary-thumbnail h4 {
-    font-family: Georgia, serif;
-    font-size: 1.4rem;
-}
-
-.summary-thumbnail img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.summary-rates {
-    padding: 2rem;
-}
-
-.rate-sub {
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 0.2rem;
-}
-
-.stay-duration {
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-}
-
-.receipt-row {
+/* Bottom pricing action bar matrix inside calendar wrapper */
+.calendar-action-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eadecf;
 }
 
-.label-link {
-    text-decoration: underline;
-    color: #555;
-    cursor: pointer;
+#aggregate-price-preview {
+    font-size: 1.15rem;
+    color: #33322e;
 }
 
-.stay-dates-summary {
-    background: #fdfcf9;
-    padding: 1rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    color: #666;
-    margin: 1.5rem 0;
-    line-height: 1.5;
+/* Elegant minimalist cancel link layout styling */
+.calendar-action-bar .cancel-lnk {
+    color: #6d6a61;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-right: 1.5rem;
+    transition: color 0.2s ease;
 }
 
-.summary-divider {
+.calendar-action-bar .cancel-lnk:hover {
+    color: #b0413e;
+}
+
+/* Dynamic Reserve Call To Action Button styling */
+.reserve-btn-styled {
+    background-color: #475a45; /* Cottage core dark sage green */
+    color: #fdfcfb;
     border: none;
-    border-top: 1px solid #eae6df;
-    margin: 1.5rem 0;
-}
-
-.total-row {
-    margin-bottom: 2rem;
-}
-
-.total-row strong {
-    font-size: 1.3rem;
-    color: var(--color-charcoal);
-}
-
-.taxes-notice {
-    font-size: 0.75rem;
-    color: #888;
-    font-weight: 400;
-}
-
-.btn-checkout {
-    width: 100%;
-    background-color: var(--color-forest-green);
-    color: var(--color-white);
-    border: none;
-    padding: 1rem;
-    font-size: 0.95rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
     letter-spacing: 0.05rem;
+    text-transform: capitalize;
     cursor: pointer;
-    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.reserve-btn-styled:hover:not(:disabled) {
+    background-color: #334231;
+}
+
+.reserve-btn-styled:disabled {
+    background-color: #ccc9be;
+    color: #8c897f;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   RIGHT SIDEBAR RECEIPT BREAKOUT PANEL
+   ========================================================================== */
+.receipt-breakout-sidebar {
+    background-color: #fdfcfb;
+    border: 1px solid #e5e2da;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(51,66,49, 0.03);
+    animation: fadeInSlide 0.4s ease-out forwards;
+}
+
+.receipt-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 1px solid #f0ede6;
+}
+
+.receipt-card h2 {
+    font-size: 1.75rem;
+    color: #334231;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.rate-subtext {
+    font-size: 0.95rem;
+    color: #7c786e;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eadecf;
+    padding-bottom: 1rem;
+}
+
+/* Individual line item rows mapping prices */
+.receipt-billing-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    color: #4a4944;
+}
+
+/* Bold middle structural metadata marker tracking dates/people */
+.receipt-billing-row.date-marker {
+    background-color: #f5f3ee;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    margin: 1.5rem 0;
+    border-left: 3px solid #8c9688;
+    color: #5c5a52;
+}
+
+/* Main summary text blocks highlighting bottom total totals */
+.receipt-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #ccc9be;
+    font-size: 1.3rem;
+    color: #2b3629;
+}
+
+.receipt-total-row small {
+    display: block;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    color: #7c786e;
+    font-weight: normal;
+    margin-top: 0.25rem;
+}
+
+/* Final Checkout redirect trigger button link style */
+.checkout-now-action {
+    width: 100%;
+    background-color: #2b3629; /* Super dark organic accent forest green */
+    color: #fdfcfb;
+    border: none;
+    padding: 1.15rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.05rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: background-color 0.2s ease;
+}
+
+.checkout-now-action:hover {
+    background-color: #475a45;
+}
+
+/* Micro smooth transitions animations */
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   CHECKOUT PAGE DESIGN LAYOUT
+   ========================================================================== */
+.checkout-page-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    font-family: 'Garamond', Georgia, serif;
+    background-color: #fdfcfb;
+    color: #33322e;
+}
+
+.checkout-title {
+    font-size: 2.5rem;
+    color: #334231; /* Brand green */
+    font-weight: 400;
+    margin-bottom: 3rem;
+}
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.form-section {
+    margin-bottom: 3.5rem;
+}
+
+.form-section h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #334231;
+    border-bottom: 1px solid #e5e2da;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    color: #6d6a61;
+    margin-bottom: 0.4rem;
+}
+
+.form-group input, 
+.form-group select {
+    padding: 0.75rem;
+    border: 1px solid #ccc9be;
+    background-color: #fff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #222;
+}
+
+/* Policies Box Specific Styling */
+.checkout-policies-box {
+    background-color: #8c9688; /* Sage/Olive accent tone */
+    color: #fff;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.checkout-policies-box h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.policy-details {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+/* Acknowledgement & Buttons */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.confirm-booking-btn {
+    background-color: #2b3629;
+    color: #fdfcfb;
+    border: none;
+    width: 100%;
+    padding: 1.25rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    margin-top: 2rem;
     transition: background 0.2s ease;
 }
 
-.btn-checkout:hover {
-    background-color: #1b261c;
+.confirm-booking-btn:hover {
+    background-color: #41523e;
 }
