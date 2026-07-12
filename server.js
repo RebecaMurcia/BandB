@@ -48,7 +48,7 @@ app.get('/room', (req, res) => {
 });
 
 app.get('/checkout', (req, res) => {
-    res.render('checkout');
+    res.render('checkout'); 
 });
 
 /**
@@ -74,19 +74,4 @@ mongoose.connect(process.env.MONGODB_URI)
         console.error('Database connection error:', error.message);
     });
     
-// Basic Test Route
-app.get('/', (req, res) => {
-    res.send('Welcome to the Bed & Breakfast API!');
-});
-
-// Database Connection & Server Start
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => {
-        console.log('Successfully connected to MongoDB.');
-        app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
-        });
-    })
-    .catch((error) => {
-        console.error('Database connection error:', error.message);
-    });
+module.exports = app;

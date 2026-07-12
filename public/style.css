@@ -1004,3 +1004,103 @@ body {
 .confirm-booking-btn:hover {
     background-color: #41523e;
 }
+
+/* ==========================================================================
+   BOOKING SUCCESS CONFIRMATION PAGE
+   ========================================================================= */
+.booking-success-container {
+    grid-column: span 2;
+    max-width: 650px;
+    margin: 2rem auto;
+    text-align: center;
+    background-color: #fdfcfb;
+    border: 1px solid #e5e2da;
+    padding: 3.5rem 2.5rem;
+    box-shadow: 0 10px 30px rgba(51, 66, 49, 0.02);
+    animation: fadeInSlide 0.5s ease-out forwards;
+}
+
+.success-icon-wrap {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.booking-success-container h2 {
+    color: #334231; /* Brand Sage Green */
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.success-subtext {
+    font-size: 1.1rem;
+    color: #6d6a61;
+    line-height: 1.5;
+}
+
+.decorative-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(229, 226, 218, 0), rgba(204, 201, 190, 1), rgba(229, 226, 218, 0));
+    margin: 2rem 0;
+}
+
+.confirmation-details-card {
+    background-color: #f6f5f0;
+    border-left: 3px solid #475a45;
+    padding: 2rem;
+    text-align: left;
+    margin-bottom: 2.5rem;
+}
+
+.confirmation-details-card h3 {
+    font-size: 1.2rem;
+    color: #334231;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.02rem;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #4a4944;
+}
+
+.status-badge {
+    background-color: #e2e8e1;
+    color: #334231;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.itinerary-notice {
+    margin-top: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #6d6a61;
+    font-style: italic;
+}
+
+.return-home-btn {
+    display: inline-block;
+    background-color: #2b3629;
+    color: #fdfcfb;
+    padding: 1.1rem 3rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    font-size: 0.95rem;
+    font-family: sans-serif;
+    transition: background-color 0.2s ease;
+}
+
+.return-home-btn:hover {
+    background-color: #475a45;
+}

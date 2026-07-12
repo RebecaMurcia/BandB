@@ -65,18 +65,20 @@ function hydrateReceiptSidebar(payload) {
 async function handleOrderSubmission(e, bookingData) {
     e.preventDefault();
     
+    console.log("Submitting order for Room Object:", bookingData.room);
+    
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
     // Gather all contact information from the form layout
     const orderPayload = {
-        roomId: bookingData.room._id,
-        checkIn: bookingData.stay.checkIn,
-        checkOut: bookingData.stay.checkOut,
+        room: bookingData.room._id,
+        checkInDate: bookingData.stay.checkIn,
+        checkOutDate: bookingData.stay.checkOut,
+        guestName: `${firstName} ${lastName}`,
+        guestEmail: document.getElementById('email').value,
+
         totalPrice: bookingData.financials.overallTotal,
-        guestInfo: {
-            firstName: document.getElementById('firstName').value,
-            lastName: document.getElementById('lastName').value,
-            phone: document.getElementById('phoneNumber').value,
-            email: document.getElementById('email').value,
-        },
+        guestPhone: document.getElementById('phoneNumber').value,
         address: {
             country: document.getElementById('country').value,
             address1: document.getElementById('address1').value,
@@ -99,12 +101,11 @@ async function handleOrderSubmission(e, bookingData) {
         if (!response.ok) {
             throw new Error(result.message || 'Transaction could not be completed.');
         }
-
         // Clean out cache upon successful booking submission
         localStorage.removeItem('pendingGooseCart');
         
         // Success layout screen
-        renderSuccessScreen(result.booking);
+        renderSuccessScreen(result);
 
     } catch (error) {
         console.error('Booking Submission Error:', error);
@@ -114,13 +115,53 @@ async function handleOrderSubmission(e, bookingData) {
 
 function renderSuccessScreen(booking) {
     const mainLayout = document.querySelector('.checkout-layout');
+    const pageTitle = document.querySelector('.checkout-title');
+    
+    if (pageTitle) pageTitle.textContent = "Reservation Confirmed";
+
     if (mainLayout) {
+        // 1. Safely grab elements before modifying the DOM layout
+        const firstNameInput = document.getElementById('firstName');
+        const lastNameInput = document.getElementById('lastName');
+        const emailInput = document.getElementById('email');
+
+        // 2. Resolve final names and emails cleanly without redeclaring variables
+        const finalGuestName = (firstNameInput && lastNameInput) 
+            ? `${firstNameInput.value} ${lastNameInput.value}` 
+            : (booking.guestName || "Guest");
+            
+        const finalGuestEmail = emailInput 
+            ? emailInput.value 
+            : (booking.guestEmail || "your email");
+
+        // 3. Inject the clean success template layout card
         mainLayout.innerHTML = `
-            <div class="booking-success-message" style="grid-column: span 2; text-align: center; padding: 4rem 1rem;">
-                <h2 style="color: #334231; font-size: 2rem; margin-bottom: 1rem;">✨ Reservation Confirmed!</h2>
-                <p style="font-size: 1.2rem; color: #555;">Thank you for choosing Village Goose Bed & Breakfast.</p>
-                <p style="margin: 1rem 0 3rem; color: #777;">A detailed summary itinerary has been sent to your email.</p>
-                <a href="/" style="background: #334231; color: #fff; padding: 1rem 3rem; text-transform: uppercase; text-decoration: none; letter-spacing: 0.1rem;">Return to Homepage</a>
+            <div class="booking-success-container">
+                <div class="success-icon-wrap">
+                    <span class="goose-feather-icon">✨</span>
+                </div>
+                
+                <h2>Thank you for your reservation, ${finalGuestName}!</h2>
+                <p class="success-subtext">Your stay at The Village Goose Bed & Breakfast has been securely registered.</p>
+                
+                <hr class="decorative-divider">
+                
+                <div class="confirmation-details-card">
+                    <h3>Reservation Summary</h3>
+                    <div class="summary-line">
+                        <span>Status:</span>
+                        <span class="status-badge">Paid & Guaranteed</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Confirmation Email:</span>
+                        <strong>${finalGuestEmail}</strong>
+                    </div>
+                    <p class="itinerary-notice">
+                        A digital copy of your itinerary, check-in instructions, and local property guides has been dispatched to your email address. 
+                    </p>
+                </div>
+
+                <a href="/" class="return-home-btn">Return to Homepage</a>
             </div>
         `;
     }

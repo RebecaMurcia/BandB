@@ -20,7 +20,7 @@ exports.createBooking = async (req, res) => {
             return res.status(404).json({ message: 'Room not found' });
         }
 
-        const newBooking = await Booking.create(req.body);
+        const newBooking = await Booking.insertMany([req.body]);
         res.status(201).json(newBooking);
     } catch (error) {
         res.status(400).json({ message: error.message });
