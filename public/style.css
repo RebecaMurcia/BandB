@@ -11,6 +11,9 @@
     --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --logo-height: 180px;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 * {
     box-sizing: border-box;
@@ -247,6 +250,10 @@ body {
     object-fit: cover;
 }
 
+.room-card img:hover{
+    opacity: 0.7;
+}
+
 .room-card-meta {
     font-size: 0.75rem;
     color: #777;
@@ -265,6 +272,11 @@ body {
 .room-card .price {
     font-size: 0.9rem;
     margin-top: 0.2rem;
+    color: var(--color-brown);
+}
+
+a.room-card-link{
+    text-decoration: none;
 }
 
 /* Featured Spot Split Banner (Grand Deluxe) */
