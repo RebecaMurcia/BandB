@@ -60,3 +60,32 @@ exports.deleteBooking = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+// POST /api/bookings/lookup
+exports.lookupBooking = async (req, res) => {
+    try {
+        const { bookingId, email } = req.body;
+
+        if (!bookingId || !email) {
+            return res.status(400).json({ message: 'Both Booking ID and Email are required.' });
+        }
+
+        // Find the booking, ensure the email matches (case-insensitive), and populate room details
+        const booking = await Booking.findOne({
+            _id: bookingId.trim(),
+            guestEmail: email.trim().toLowerCase()
+        }).populate('room');
+
+        if (!booking) {
+            return res.status(404).json({ message: 'No reservation found matching those details.' });
+        }
+
+        res.status(200).json(booking);
+    } catch (error) {
+        // Handle case where bookingId is not a valid MongoDB ObjectId format
+        if (error.name === 'CastError') {
+            return res.status(400).json({ message: 'Invalid Confirmation ID format.' });
+        }
+        res.status(500).json({ message: error.message });
+    }
+};

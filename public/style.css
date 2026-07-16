@@ -1116,3 +1116,203 @@ a.room-card-link{
 .return-home-btn:hover {
     background-color: #475a45;
 }
+
+/* ==========================================================================
+   RESERVATION LOOKUP STYLES
+   ========================================================================== */
+
+/* Page Container & Title */
+.lookup-page-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.lookup-header-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Search Card Elements */
+.lookup-search-card {
+    background: #fdfcfb;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.lookup-intro-text {
+    margin-bottom: 1.5rem;
+    color: #555;
+    text-align: center;
+}
+
+.lookup-form-group {
+    margin-bottom: 1.2rem;
+}
+
+.lookup-form-group-last {
+    margin-bottom: 1.5rem;
+}
+
+.lookup-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #2b3629;
+}
+
+.lookup-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't push width beyond 100% */
+}
+
+.lookup-submit-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background: #2b3629;
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.lookup-error-msg {
+    color: #b0413e;
+    margin-top: 1rem;
+    text-align: center;
+    display: none;
+}
+
+/* Dynamic Itinerary Card Elements */
+.lookup-itinerary-card {
+    display: none; /* Controlled by lookup.js */
+    background: #fdfcfb;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.itinerary-header {
+    background: #2b3629;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.itinerary-sparkle-icon {
+    font-size: 2rem;
+}
+
+.itinerary-header h2 {
+    margin: 0.5rem 0 0.2rem;
+}
+
+#itinerary-id {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    margin: 0;
+}
+
+.itinerary-body {
+    padding: 2rem;
+}
+
+.itinerary-room-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.itinerary-room-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.itinerary-room-info h3 {
+    margin: 0 0 0.3rem;
+    color: #2b3629;
+}
+
+.itinerary-room-subtext {
+    margin: 0;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.itinerary-divider {
+    border: 0;
+    border-top: 1px dashed #ddd;
+    margin: 1.5rem 0;
+}
+
+.itinerary-dates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.itinerary-date-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 0.2rem;
+}
+
+.itinerary-date-col span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2b3629;
+}
+
+.itinerary-details-summary {
+    background: #f7f6f2;
+    padding: 1.2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+
+.summary-item-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+}
+
+.summary-item-row:first-of-type {
+    margin-bottom: 0.5rem;
+}
+
+#total-price-val {
+    color: #2b3629;
+}
+
+.itinerary-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.itinerary-print-btn {
+    flex: 1;
+    background: #e5e2da;
+    color: #2b3629;
+    border: none;
+    padding: 0.8rem;
+    cursor: pointer;
+}
+
+.itinerary-home-link {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.8rem;
+}

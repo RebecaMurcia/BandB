@@ -51,6 +51,10 @@ app.get('/checkout', (req, res) => {
     res.render('checkout'); 
 });
 
+app.get('/lookup', (req, res) => {
+    res.render('lookup');
+});
+
 /**
  * @openapi
  * /:

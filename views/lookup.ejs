@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find My Reservation | The Village Goose</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+     <%- include('partials/header') %>
+
+    <main class="lookup-page-container">
+    <h1 class="checkout-title lookup-header-title">Manage Reservation</h1>
+    
+    <!-- SEARCH FORM -->
+    <div id="search-section" class="confirmation-details-card lookup-search-card">
+        <p class="lookup-intro-text">Enter your booking details to retrieve your itinerary and check-in information.</p>
+        
+        <form id="lookup-form">
+            <div class="lookup-form-group">
+                <label class="lookup-label">Confirmation ID</label>
+                <input type="text" id="lookupId" class="lookup-input" placeholder="e.g. 6a4c8d..." required>
+            </div>
+            
+            <div class="lookup-form-group-last">
+                <label class="lookup-label">Email Address</label>
+                <input type="email" id="lookupEmail" class="lookup-input" placeholder="yourname@email.com" required>
+            </div>
+
+            <button type="submit" class="return-home-btn lookup-submit-btn">Retrieve Reservation</button>
+        </form>
+        <div id="lookup-error" class="lookup-error-msg"></div>
+    </div>
+
+    <!-- DYNAMIC ITINERARY CARD (Hidden by default) -->
+    <div id="itinerary-card" class="lookup-itinerary-card">
+        <div class="itinerary-header">
+            <h2>Your Itinerary is Confirmed!</h2>
+            <p id="itinerary-id"></p>
+        </div>
+        
+        <div class="itinerary-body">
+            <div class="itinerary-room-row">
+                <img id="room-img" src="" alt="Room image" class="itinerary-room-img">
+                <div class="itinerary-room-info">
+                    <h3 id="room-name"></h3>
+                    <p class="itinerary-room-subtext">Breakfast Inclusive / Guaranteed Reservation</p>
+                </div>
+            </div>
+
+            <hr class="itinerary-divider">
+
+            <div class="itinerary-dates-grid">
+                <div class="itinerary-date-col">
+                    <strong class="itinerary-date-label">Check-In After 3:00 PM</strong>
+                    <span id="check-in-val"></span>
+                </div>
+                <div class="itinerary-date-col">
+                    <strong class="itinerary-date-label">Check-Out Before 12:00 PM</strong>
+                    <span id="check-out-val"></span>
+                </div>
+            </div>
+
+            <div class="itinerary-details-summary">
+                <div class="summary-item-row">
+                    <span>Guest:</span>
+                    <strong id="guest-name-val"></strong>
+                </div>
+                <div class="summary-item-row">
+                    <span>Deposit Paid:</span>
+                    <strong id="total-price-val"></strong>
+                </div>
+            </div>
+
+            <div class="itinerary-actions">
+                <button onclick="window.print()" class="return-home-btn itinerary-print-btn">
+                    <i class="fa-solid fa-print"></i> Print Details
+                </button>
+                <a href="/" class="return-home-btn itinerary-home-link">Return Home</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+ <%- include('partials/footer') %>
+    <script src="/lookup.js"></script>
+</body>
+</html>

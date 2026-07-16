@@ -92,5 +92,7 @@ router.route('/')
 router.route('/:id')
     .put(bookingController.updateBooking)
     .delete(bookingController.deleteBooking);
+    
+router.post('/lookup', bookingController.lookupBooking);
 
 module.exports = router;
