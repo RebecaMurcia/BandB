@@ -43,8 +43,21 @@ app.use('/api/bookings', require('./routes/bookingRoutes'));
 app.get('/', (req, res) => {
     res.render('index');
 });
-app.get('/room', (req, res) => {
-    res.render('room');
+
+app.get('/room/:id', async (req, res) => {
+    try {
+        const Room = require('./models/Room'); 
+        const roomData = await Room.findById(req.params.id);
+
+        if (!roomData) {
+            return res.status(404).send('Room not found');
+        }
+
+        res.render('room', { room: roomData });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
 });
 
 app.get('/checkout', (req, res) => {
@@ -55,15 +68,7 @@ app.get('/lookup', (req, res) => {
     res.render('lookup');
 });
 
-/**
- * @openapi
- * /:
- *  get:
- *   description: Welcome message for the B&B API
- *   responses:
- *      200:
- *        description: Returns a success string.
- */
+
 
 // Database Connection & Server Start
 mongoose.connect(process.env.MONGODB_URI)

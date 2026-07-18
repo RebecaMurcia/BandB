@@ -8,7 +8,7 @@ const roomSchema = new mongoose.Schema({
         unique: true
     },
     description: {
-        type: String,
+        type: [String],
         required: [true, 'A room description is required']
     },
     maxGuests: {
@@ -28,6 +28,9 @@ const roomSchema = new mongoose.Schema({
     images: {
         type: [String], // Array of image URLs
         default: []
+    },
+    botanicalIcon: { 
+        type: String 
     },
     isAvailable: {
         type: Boolean,

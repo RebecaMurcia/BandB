@@ -1,7 +1,12 @@
 [
   {
     "name": "Avory Room",
-    "description": "Original wide-plank hardwood floors and low-slung, sloped plaster ceilings evoke a peaceful, nostalgic atmosphere.",
+    "description": [
+      "Original wide-plank hardwood floors and low-slung, sloped plaster ceilings evoke a peaceful, nostalgic atmosphere.",
+      "Vintage Comfort: Features two matching antique iron and brass twin beds dressed in timeless, geometric patchwork quilts.",
+      "Rustic Elements: Original wide-plank hardwood floors and low-slung, sloped plaster ceilings evoke a peaceful, nostalgic atmosphere.",
+      "Charming Details: A classic multi-pane window overlooks the lush green gardens, complete with a vintage washbasin and pitcher resting on the sill to capture the perfect morning light."
+    ],
     "maxGuests": 2,
     "pricePerNight": 75,
     "amenities": [
@@ -13,11 +18,24 @@
       "Fans",
       "WiFi"
     ],
-    "images": ["assets/avory_room1.png"]
+    "images": [
+      "assets/avory_room1.png",
+      "assets/avory_room2.jpg",
+      "assets/avory_room3.jpg",
+      "assets/avory_room4.jpg",
+      "assets/avory_room5.jpg"    
+    ],
+    "botanicalIcon": "assets/acorn.png",
+    "isAvailable": true
   },
   {
     "name": "Brunning Room",
-    "description": "Immerse yourself in moody, vintage elegance in this beautifully appointed guest room, where classic design meets deep, comforting tones.",
+    "description": [
+      "Immerse yourself in moody, vintage elegance in this beautifully appointed guest room, where classic design meets deep, comforting tones.",
+      "Moody & Sophisticated Palette: The room wraps you in luxury with dark, patterned teal or navy toile wallpaper that perfectly matches the painted ceiling and window trim, creating a cohesive, intimate atmosphere.",
+      "Double the Comfort: Features two matching beds with deep blue upholstered headboards.",
+      "Rich Wood Accents: A stunning antique wooden dresser sits prominently between a bed and the large window, beautifully complementing the warmth of the polished hardwood floors."
+    ],
     "maxGuests": 6,
     "pricePerNight": 190,
     "amenities": [
@@ -26,13 +44,26 @@
       "Linen sheets and extra pillows",
       "Essential toileteries",
       "AC and heating",
-      "WiFi "
+      "WiFi"
     ],
-    "images": ["assets/brunning_room1.jpg"]
+    "images": [
+      "assets/brunning_room1.jpg",
+      "assets/brunning_room2.jpg",
+      "assets/brunning_room3.jpg",
+      "assets/brunning_room4.jpg",
+      "assets/brunning_room5.jpg"
+    ],
+    "botanicalIcon": "assets/squirrel.png",
+    "isAvailable": true    
   },
   {
     "name": "Blue Room",
-    "description": "Bright, serene, and bursting with classic cottagecore elegance, this guest room balances blues with warm, natural wood tones to create the ultimate restful escape.",
+    "description": [
+      "Bright, serene, and bursting with classic cottagecore elegance, this guest room balances blues with warm, natural wood tones to create the ultimate restful escape.",
+      "Botanical & Beadboard Accents: The upper walls are dressed in a delicate, white-and-blue leafy botanical wallpaper, perfectly grounded by deep teal-blue beadboard wainscoting that wraps around the room.",
+      "Cozy Seating Nook: To the side, a small bistro area provides a sunny spot to enjoy breakfast.",
+      "Charming Details: Matching light wood nightstands, a woven-base bedside lamp, simple neutral Roman shades, and a classic framed landscape print above the bed add an authentic, historical feel."
+    ],
     "maxGuests": 2,
     "pricePerNight": 120,
     "amenities": [
@@ -43,15 +74,28 @@
       "Fans",
       "WiFi"
     ],
-    "images": ["assets/blue_room1.png"]
+    "images": [
+      "assets/blue_room1.png",
+      "assets/blue_room2.jpg",
+      "assets/blue_room3.jpg",
+      "assets/blue_room4.jpg",
+      "assets/blue_room5.jpg"
+    ],
+    "botanicalIcon": "assets/fern.png",
+    "isAvailable": true
   },
   {
     "name": "Grand Deluxe",
-    "description": "Steeped in atmospheric, old-world luxury and regal character, this expansive master suite blends dramatic jewel tones with classic mid-century and antique elements for a truly grand escape.",
+    "description": [
+      "Steeped in atmospheric, old-world luxury and regal character, this expansive master suite blends dramatic jewel tones with classic mid-century and antique elements for a truly grand escape.",
+      "An exceptional choice for guests seeking a spacious, nostalgic sanctuary brimming with dramatic design and historical flair.",
+      "Regal Paneled Walls: The suite is enveloped in rich, deep teal walls accented by classic grid molding and elegant gold filigree trim, creating a stately, gallery-like ambience.",
+      "Charming Mid-Century Accents: A long, retro wooden credenza topped with a green runner provides ample heritage charm, beautifully illuminating an array of ornate, and gold-framed artwork and historic photographs."
+    ],
     "maxGuests": 2,
     "pricePerNight": 250,
     "amenities": [
-     "Complementary Champagne",
+      "Complementary Champagne",
       "Private bathroom with bathtub",
       "Hot Water",
       "Linen sheets and extra pillows",
@@ -59,11 +103,24 @@
       "AC and heating",
       "WiFi"
     ],
-    "images": ["assets/grand_deluxe1.jpg"]
+    "images": [
+      "assets/grand_deluxe1.jpg",
+      "assets/grand_deluxe2.jpg",
+      "assets/grand_deluxe3.jpg",
+      "assets/grand_deluxe4.png",
+      "assets/grand_deluxe5.jpg",
+      "assets/grand_deluxe6.jpg"
+    ],
+    "botanicalIcon": "assets/goose.png",
+    "isAvailable": true
   },
   {
     "name": "Magnolia Room",
-    "description": "Exuding country-inn aesthetic, this spacious room combines soothing earth tones with classic cottage elements to create a restful haven for family or friends traveling together.",
+    "description": [
+      "Exuding country-inn aesthetic, this spacious room combines soothing earth tones with classic cottage elements to create a restful haven for family or friends traveling together.",
+      "Sunlit and Scenic: Multiple large double-hung windows flood the room with morning light and offer peaceful views of the surrounding autumn greenery, softened by long, neutral drapery panels.",
+      "Earthy & Floral Accents: The walls showcase a charming combination of delicate, small-print floral wallpaper on the upper half, beautifully balanced by muted mauve-brown vertical wood paneling below."
+    ],
     "maxGuests": 6,
     "pricePerNight": 180,
     "amenities": [
@@ -73,11 +130,23 @@
       "Essential toileteries",
       "WiFi"
     ],
-    "images": ["assets/magnolia_room1.jpg"]
+    "images": [
+      "assets/magnolia_room1.jpg",
+      "assets/magnolia_room2.png",
+      "assets/magnolia_room3.png",
+      "assets/magnolia_room4.jpg"
+    ],
+    "botanicalIcon": "assets/magnolia.png",
+    "isAvailable": true
   },
   {
     "name": "Sophie Room",
-    "description": "Steeped in stately elegance and classic character, this room balances rich, heirloom wood craftsmanship with soft, historical blue-green tones for a regal yet comforting retreat.",
+    "description": [
+      "Steeped in stately elegance and classic character, this room balances rich, heirloom wood craftsmanship with soft, historical blue-green tones for a regal yet comforting retreat.",
+      "The Canopy Masterpiece: A magnificent, dark wood four-poster canopy bed takes center stage, featuring carved wooden pillars and a paneled ceiling frame.",
+      "Warm Heirloom Elements: Beautiful, polished wide-plank hardwood floors bring immense warmth to the space, complemented perfectly by a substantial wooden blanket chest.",
+      "Cozy Parlor Seating: A sunlit corner serves as an intimate sitting area to enjoy morning coffee."
+    ],
     "maxGuests": 3,
     "pricePerNight": 135,
     "amenities": [
@@ -88,13 +157,14 @@
       "Essential toileteries",
       "WiFi"
     ],
-    "images": ["assets/sophie_room1.png"]
+    "images": [
+      "assets/sophie_room1.png",
+      "assets/sophie_room2.jpg",
+      "assets/sophie_room3.png",
+      "assets/sophie_room4.jpg",
+      "assets/sophie_room5.jpg"
+    ],
+    "botanicalIcon": "assets/bird.png",
+    "isAvailable": true
   }
 ]
-
-
-
-  
-
-  
-  

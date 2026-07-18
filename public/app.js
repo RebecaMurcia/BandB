@@ -58,7 +58,7 @@ function displayRooms(rooms) {
         const roomImage = room.images && room.images.length > 0 ? room.images[0] : 'assets/blue-room.jpg';
         
         roomCard.innerHTML = `
-            <a href="/room?id=${room._id}" class="room-card-link">
+            <a href="/room/${room._id}" class="room-card-link">
                 <img src="${roomImage}" alt="${room.name}">
                 <div class="room-card-meta">Max Guests: ${room.maxGuests}</div>
                 <h3>${room.name}</h3>

@@ -4,26 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Details | Village Goose B&B</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/confetti.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
 
     <!-- 1. NAVIGATION HEADER -->
     <%- include('partials/header') %>
+    
     <!-- 2. FULL-WIDTH HERO SLIDER -->
-    <section class="room-hero-slider">
-        <div class="slider-container" id="slider-container">
-            <!-- Dynamic room images will be injected here -->
-            <img src="assets/blue-room.jpg" alt="Room Main Image" class="slider-img active">
+   <div class="carousel-container">
+    <div class="carousel-slides">
+        <!-- Add a strict check for room and room.images here -->
+        <% if (typeof room !== 'undefined' && room.images && room.images.length > 0) { %>
+            <% room.images.forEach((img, index) => { %>
+                <div class="carousel-slide <%= index === 0 ? 'active' : '' %>">
+                    <img src="/<%= img %>" alt="<%= room.name %> view <%= index + 1 %>">
+                </div>
+            <% }) %>
+        <% } else { %>
+            <!-- Clean fallback asset if image array is missing -->
+            <div class="carousel-slide active">
+                <img src="/assets/blue-room.jpg" alt="Default Room View">
+            </div>
+        <% } %>
+    </div>
+
+    <% if (typeof room !== 'undefined' && room.images && room.images.length > 1) { %>
+        <button class="carousel-btn prev-btn" aria-label="Previous slide">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next-btn" aria-label="Next slide">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="carousel-dots">
+            <% room.images.forEach((_, index) => { %>
+                <span class="dot <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>"></span>
+            <% }) %>
         </div>
-        <button class="slider-arrow prev-arrow">&#10094;</button>
-        <button class="slider-arrow next-arrow">&#10095;</button>
-        <div class="slider-dots" id="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
+    <% } %>
+</div>
 
     <!-- MAIN CONTENT CONTAINER -->
     <main class="room-page-content">
@@ -32,33 +56,55 @@
         <section class="room-intro-split">
             <!-- Left Side: Text Details -->
             <div class="room-text-details">
-                <h1 id="room-title" class="room-page-title">Blue Room</h1>
-                <p id="room-meta" class="room-page-meta">MAX 2 GUESTS / 1 QUEEN BED / $120 PER NIGHT</p>
-                
-                <div id="room-paragraphs" class="room-description-text">
-                    <!-- Paragraph blocks injected here -->
-                    <p><strong>Botanical & Beadboard Accents:</strong> The upper walls are dressed in a delicate, white-and-blue leafy botanical wallpaper...</p>
-                </div>
+                 <h1><%= room.name %></h1>
+                 <p>MAX <%= room.maxGuests %> GUESTS / $<%= room.pricePerNight %> PER NIGHT</p>
+    
+            <div id="room-paragraphs" class="room-description-text">
+    <% if (room.description && room.description.length > 0) { %>
+        <% room.description.forEach(paragraph => { %>
+            <p>
+                <% if (paragraph.includes('**')) { %>
+                    <!-- Alternative clean formatting if you used Markdown asterisks -->
+                    <%= paragraph.replace(/\*\*(.*?)\*\*/g, '$1') %>
+                <% } else if (paragraph.includes(':')) { %>
+                    <!-- Automatically bolds everything up to the first colon -->
+                    <% let parts = paragraph.split(':'); %>
+                    <strong><%= parts[0] %>:</strong><%= parts.slice(1).join(':') %>
+                <% } else { %>
+                    <%= paragraph %>
+                <% } %>
+            </p>
+        <% }) %>
+    <% } %>
+</div>
+           
+            
 
-                <div class="offers-container">
-                    <h3>WHAT THIS ROOM OFFERS</h3>
-                    <ul id="room-amenities-list" class="offers-list">
-                        <li>Private bathroom with showerhead</li>
-                        <li>Hot Water</li>
-                        <li>Extra warm blankets</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="offers-container">
+            <h3>WHAT THIS ROOM OFFERS</h3>
+            <ul id="room-amenities-list" class="offers-list">
+                <% if (room.amenities && room.amenities.length > 0) { %>
+                    <% room.amenities.forEach(amenity => { %>
+                        <li><%= amenity %></li>
+                    <% }) %>
+                <% } else { %>
+                    <li>Standard boutique amenities included</li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
 
             <!-- Right Side: Decorative Artwork Collage -->
-            <div class="room-collage-panel">
-                <div class="collage-wrapper">
-                    <!-- Decorative botanical line art asset -->
-                    <img src="assets/botanical-line.png" alt="" class="collage-decor-icon" onerror="this.style.display='none'">
-                    <img src="assets/blue-room-accent1.jpg" alt="Room detail view" class="collage-img img-top">
-                    <img src="assets/blue-room-accent2.jpg" alt="Bathroom detail view" class="collage-img img-bottom">
-                </div>
-            </div>
+            <!-- Right Side: Decorative Artwork Collage -->
+<div class="room-collage-panel">
+    <div class="collage-wrapper">
+        <img src="/<%= room.botanicalIcon ? room.botanicalIcon : 'assets/botanical-line.png' %>" alt="" class="collage-decor-icon" onerror="this.style.display='none'">
+        
+        <!-- Pull secondary images from your seeded array if they exist, otherwise use fallback -->
+        <img src="/<%= (room.images && room.images[2]) ? room.images[2] : 'assets/blue-room.jpg' %>" alt="Room detail view" class="collage-img img-top">
+        <img src="/<%= (room.images && room.images[3]) ? room.images[3] : 'assets/blue-room.jpg' %>" alt="Bathroom detail view" class="collage-img img-bottom">
+    </div>
+</div>
         </section>
 
         <!-- 4. BOOKING DETAILS GRID SECTION -->
@@ -72,9 +118,50 @@
             <div class="ribbon-box">
                 <label><i class="fas fa-users"></i> Guests</label>
                 <select id="booking-guests">
-                    <option value="1">1 adult, 0 children</option>
-                    <option value="2">2 adults, 0 children</option>
-                </select>
+    <% 
+        // 1. Establish structural fallback rules based on your room names
+        let minGuests = 1;
+        let allowMinors = true;
+        const roomName = room.name.toLowerCase();
+
+        if (roomName.includes('brunning') || roomName.includes('magnolia') || roomName.includes('sophie')) {
+            minGuests = 2;
+        }
+
+        if (roomName.includes('blue') || roomName.includes('grand deluxe')) {
+            allowMinors = false;
+        }
+
+        // 2. Dynamically build options up to the room's maximum capacity
+        for (let total = minGuests; total <= room.maxGuests; total++) {
+            if (allowMinors) {
+                // For family-friendly rooms, provide combinations matching the total
+                for (let adults = 1; adults <= total; adults++) {
+                    let children = total - adults;
+                    
+                    // Enforce the room's minimum constraint on the very first combination row
+                    if (adults + children >= minGuests) {
+                        let adultText = adults === 1 ? '1 adult' : `${adults} adults`;
+                        let childText = children === 0 ? '0 children' : children === 1 ? '1 child' : `${children} children`;
+    %>
+                        <option value="<%= total %>-A<%= adults %>-C<%= children %>">
+                            <%= adultText %>, <%= childText %>
+                        </option>
+    <% 
+                    }
+                }
+            } else {
+                // For adults-only layouts, only generate 0-children rows
+                let adultText = total === 1 ? '1 adult' : `${total} adults`;
+    %>
+                <option value="<%= total %>-A<%= total %>-C0">
+                    <%= adultText %>, 0 children (Adults Only)
+                </option>
+    <% 
+            }
+        } 
+    %>
+</select>
             </div>
             <div class="ribbon-box">
                 <label><i class="fas fa-calendar-alt"></i> Selected Stay Dates</label>
@@ -89,7 +176,7 @@
             <span id="aggregate-price-preview">Select dates to view pricing options</span>
             <div>
                 <a href="#" class="cancel-lnk" onclick="window.location.reload(); return false;">Cancel</a>
-                <button id="reserve-stage-btn" disabled class="reserve-btn-styled">Reserve</button>
+                <button id="reserve-stage-btn" disabled data-price="<%= room.pricePerNight %>" class="reserve-btn-styled">Reserve</button>
             </div>
         </div>
     </div>
@@ -105,3 +192,5 @@
 
 </body>
 </html>
+
+<script src="/room.js"></script>
