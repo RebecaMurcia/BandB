@@ -12,13 +12,12 @@
 </head>
 <body>
 
-    <!-- 1. NAVIGATION HEADER -->
+    <!--Navigaion Header -->
     <%- include('partials/header') %>
     
-    <!-- 2. FULL-WIDTH HERO SLIDER -->
+    <!-- Full-Width Hero Slider -->
    <div class="carousel-container">
     <div class="carousel-slides">
-        <!-- Add a strict check for room and room.images here -->
         <% if (typeof room !== 'undefined' && room.images && room.images.length > 0) { %>
             <% room.images.forEach((img, index) => { %>
                 <div class="carousel-slide <%= index === 0 ? 'active' : '' %>">
@@ -26,7 +25,7 @@
                 </div>
             <% }) %>
         <% } else { %>
-            <!-- Clean fallback asset if image array is missing -->
+        
             <div class="carousel-slide active">
                 <img src="/assets/blue-room.jpg" alt="Default Room View">
             </div>
@@ -49,12 +48,10 @@
     <% } %>
 </div>
 
-    <!-- MAIN CONTENT CONTAINER -->
+    <!-- Main Content Container -->
     <main class="room-page-content">
         
-        <!-- 3. ROOM INTRO SPLIT PANEL -->
         <section class="room-intro-split">
-            <!-- Left Side: Text Details -->
             <div class="room-text-details">
                  <h1><%= room.name %></h1>
                  <p>MAX <%= room.maxGuests %> GUESTS / $<%= room.pricePerNight %> PER NIGHT</p>
@@ -64,10 +61,8 @@
         <% room.description.forEach(paragraph => { %>
             <p>
                 <% if (paragraph.includes('**')) { %>
-                    <!-- Alternative clean formatting if you used Markdown asterisks -->
                     <%= paragraph.replace(/\*\*(.*?)\*\*/g, '$1') %>
                 <% } else if (paragraph.includes(':')) { %>
-                    <!-- Automatically bolds everything up to the first colon -->
                     <% let parts = paragraph.split(':'); %>
                     <strong><%= parts[0] %>:</strong><%= parts.slice(1).join(':') %>
                 <% } else { %>
@@ -94,32 +89,28 @@
         </div>
     </div>
 
-            <!-- Right Side: Decorative Artwork Collage -->
-            <!-- Right Side: Decorative Artwork Collage -->
 <div class="room-collage-panel">
     <div class="collage-wrapper">
         <img src="/<%= room.botanicalIcon ? room.botanicalIcon : 'assets/botanical-line.png' %>" alt="" class="collage-decor-icon" onerror="this.style.display='none'">
-        
-        <!-- Pull secondary images from your seeded array if they exist, otherwise use fallback -->
         <img src="/<%= (room.images && room.images[2]) ? room.images[2] : 'assets/blue-room.jpg' %>" alt="Room detail view" class="collage-img img-top">
         <img src="/<%= (room.images && room.images[3]) ? room.images[3] : 'assets/blue-room.jpg' %>" alt="Bathroom detail view" class="collage-img img-bottom">
     </div>
 </div>
         </section>
 
-        <!-- 4. BOOKING DETAILS GRID SECTION -->
+        <!-- Booking Details Grid Section -->
         <section class="booking-details-section">
             <h2 class="section-title">Booking Details</h2>
             
             <div class="room-booking-flow-container">
-    <!-- Left Interaction Area: Calendar Panel -->
+  
 <div class="calendar-selection-panel">
         <div class="filter-ribbon">
             <div class="ribbon-box">
                 <label><i class="fas fa-users"></i> Guests</label>
                 <select id="booking-guests">
     <% 
-        // 1. Establish structural fallback rules based on your room names
+
         let minGuests = 1;
         let allowMinors = true;
         const roomName = room.name.toLowerCase();
@@ -132,14 +123,11 @@
             allowMinors = false;
         }
 
-        // 2. Dynamically build options up to the room's maximum capacity
         for (let total = minGuests; total <= room.maxGuests; total++) {
             if (allowMinors) {
-                // For family-friendly rooms, provide combinations matching the total
                 for (let adults = 1; adults <= total; adults++) {
                     let children = total - adults;
                     
-                    // Enforce the room's minimum constraint on the very first combination row
                     if (adults + children >= minGuests) {
                         let adultText = adults === 1 ? '1 adult' : `${adults} adults`;
                         let childText = children === 0 ? '0 children' : children === 1 ? '1 child' : `${children} children`;
@@ -151,7 +139,6 @@
                     }
                 }
             } else {
-                // For adults-only layouts, only generate 0-children rows
                 let adultText = total === 1 ? '1 adult' : `${total} adults`;
     %>
                 <option value="<%= total %>-A<%= total %>-C0">
@@ -169,7 +156,6 @@
             </div>
         </div>
 
-        <!-- The Inline Double-Month Calendar Target Container -->
         <div id="inline-calendar-container"></div>
 
         <div class="calendar-action-bar">
@@ -187,7 +173,7 @@
 
     </main>
 
-    <!-- 5. SITE FOOTER -->
+    <!-- Footer -->
   <%- include('partials/footer') %>
 
 </body>

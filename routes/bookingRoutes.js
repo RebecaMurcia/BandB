@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const bookingController = require('../controllers/bookingController');
+const bookingController = require("../controllers/bookingController");
 
 /**
  * @openapi
@@ -47,9 +47,10 @@ const bookingController = require('../controllers/bookingController');
  *       400:
  *         description: Invalid input data or checkout date precedes check-in.
  */
-router.route('/')
-    .get(bookingController.getAllBookings)
-    .post(bookingController.createBooking);
+router
+  .route("/")
+  .get(bookingController.getAllBookings)
+  .post(bookingController.createBooking);
 
 /**
  * @openapi
@@ -89,10 +90,11 @@ router.route('/')
  *       404:
  *         description: Booking not found.
  */
-router.route('/:id')
-    .put(bookingController.updateBooking)
-    .delete(bookingController.deleteBooking);
-    
-router.post('/lookup', bookingController.lookupBooking);
+router
+  .route("/:id")
+  .put(bookingController.updateBooking)
+  .delete(bookingController.deleteBooking);
+
+router.post("/lookup", bookingController.lookupBooking);
 
 module.exports = router;

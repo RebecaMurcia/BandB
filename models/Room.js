@@ -1,43 +1,46 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const roomSchema = new mongoose.Schema({
+const roomSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: [true, 'A room name is required'],
-        trim: true,
-        unique: true
+      type: String,
+      required: [true, "A room name is required"],
+      trim: true,
+      unique: true,
     },
     description: {
-        type: [String],
-        required: [true, 'A room description is required']
+      type: [String],
+      required: [true, "A room description is required"],
     },
     maxGuests: {
-        type: Number,
-        required: [true, 'Maximum guest capacity is required'],
-        min: [1, 'A room must accommodate at least 1 guest']
+      type: Number,
+      required: [true, "Maximum guest capacity is required"],
+      min: [1, "A room must accommodate at least 1 guest"],
     },
     pricePerNight: {
-        type: Number,
-        required: [true, 'Price per night is required'],
-        min: [0, 'Price cannot be negative']
+      type: Number,
+      required: [true, "Price per night is required"],
+      min: [0, "Price cannot be negative"],
     },
     amenities: {
-        type: [String], // Array of strings (e.g., ['Wi-Fi', 'King Bed', 'Ocean View'])
-        default: []
+      type: [String],
+      default: [],
     },
     images: {
-        type: [String], // Array of image URLs
-        default: []
+      type: [String],
+      default: [],
     },
-    botanicalIcon: { 
-        type: String 
+    botanicalIcon: {
+      type: String,
     },
     isAvailable: {
-        type: Boolean,
-        default: true
-    }
-}, {
-    timestamps: true // Automatically adds createdAt and updatedAt fields
-});
+      type: Boolean,
+      default: true,
+    },
+  },
+  {
+    timestamps: true,
+  },
+);
 
-module.exports = mongoose.model('Room', roomSchema);
+module.exports = mongoose.model("Room", roomSchema);

@@ -23,7 +23,7 @@
       "assets/avory_room2.jpg",
       "assets/avory_room3.jpg",
       "assets/avory_room4.jpg",
-      "assets/avory_room5.jpg"    
+      "assets/avory_room5.jpg"
     ],
     "botanicalIcon": "assets/acorn.png",
     "isAvailable": true
@@ -54,7 +54,7 @@
       "assets/brunning_room5.jpg"
     ],
     "botanicalIcon": "assets/squirrel.png",
-    "isAvailable": true    
+    "isAvailable": true
   },
   {
     "name": "Blue Room",
